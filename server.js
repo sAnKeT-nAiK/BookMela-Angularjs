@@ -2,6 +2,26 @@ var express=require('express');
 var app=express();
 var bodyParser=require('body-parser');
 
+// npm install https://github.com/mapbox/node-sqlite3/tarball/master sqlite3 for npm
+// var sqlite3=require('sqlite3').verbose();
+// var db=new sqlite3.Database('abcd');
+
+// db.serialize(function(){
+// 	db.run("CREATE TABLE user (id INT, dt TEXT)");
+// 	var stmt=db.prepare("INSERT INTO user values(?,?)");
+// 	for(var i=0;i<3;i++){
+// 		var a="sanket";
+// 		var b="naik"
+// 		stmt.run(a,b);
+// 	}
+
+// 	stmt.finalize();
+// db.each("SELECT id,dt from user",function(err,row){
+// 	console.log("User id:"+row.id,row.dt);
+// });
+// });
+// db.close();
+
 app.use(express.static(__dirname+"/app"));
 app.use(bodyParser.json());
 

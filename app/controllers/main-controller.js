@@ -28,15 +28,18 @@ app.config(function($routeProvider) {
     //     templateUrl : "index.html",
     //     controller:"indexcontroller"
     // })
-   
+     .when("/", {
+        templateUrl : "homepage.html",
+        controller : ""
+    })
      .when("/login", {
         templateUrl : "login.html",
         controller : ""
     })
-      .when("/", {
-        templateUrl : "homepage.html",
-        controller : ""
-    });
+     .otherwise({redirectTo:"/"})
+      
+
+
 
    
 });
