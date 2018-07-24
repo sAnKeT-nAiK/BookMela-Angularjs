@@ -1,0 +1,65 @@
+
+    <div ng-app="myapp" ng-controller="myctrl">
+      <!-- Title Home -->
+      <div class="jumbotron text-center bk" style="padding-top:70px">
+        <h1 style="color:#fff">Welcome to BookMela</h1>      
+        <p style="color:#fff">Get programming books free of cost. Get started by seraching here.</p>
+        <div class="container-fluid">
+            <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6" >
+                 <input type="text" ng-model="selected" uib-typeahead="book for book in books | filter:$viewValue | limitTo:5" class="form-control" placeholder="Enter book title">
+                <br>
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+            </div>
+        </div>
+        <br>
+      </div>
+
+      <input type="text" ng-model="mela.testdata"><h1>{{dta}}</h1>
+      <input type="button" ng-click="submit()">
+      
+      <!-- Owl corosal -->
+     <!--  <div class="owl-carousel owl-theme">
+        
+            <div class="item col-md-5 border">
+
+                    <div class="row box-shadow border">
+                        <div class="col-md-5 border">
+                            <img class="lib-img-show img-responsive pull-right" src="cover1.jpeg">
+                        </div>
+                        <div class="col-md-6 border">
+                            <div class="lib-row lib-header border">
+                                Example library
+                                <div class="lib-header-seperator border"></div>
+                            </div>
+                            <div class=" border">
+                                Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        <div class="item" style="width:250px">
+            <img src="try/img.png">
+        </div>
+        <div class="item" style="width:250px">
+            <img src="try/img.png">
+        </div>
+        <div class="item" style="width:250px">
+            <img src="try/img.png">
+        </div>
+        <div class="item" style="width:250px">
+            <img src="try/img.png">
+        </div>
+        <div class="item" style="width:250px">
+            <img src="try/img.png">
+        </div>
+        <div class="item" style="width:250px">
+            <img src="try/img.png">
+        </div>
+      </div> -->
+
+    
+   
+
+</div>

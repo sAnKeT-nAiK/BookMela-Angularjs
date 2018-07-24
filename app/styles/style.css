@@ -1,0 +1,38 @@
+
+.link-button-color {
+    color: #fff;
+}
+
+.link-button-color:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+.main-navigation {
+    box-shadow: 0 6px 6px -6px rgba(0,0,0,.6);
+}
+
+.border{
+	border:1px solid red
+}
+
+.bk{
+background-color: #00b597;
+background-image: url(../media/crisscross.png);
+}
+
+/*background-color: #00bdad;
+background-image: url(http://transparenttextures.com/patterns/black-linen.png);
+*/
+
+/*background-color: #00b597;
+background-image: url(http://transparenttextures.com/patterns/always-grey.png);*/
+
+/*http://transparenttextures.com/patterns/crissxcross.png*/
+
+
+.img-responsive{
+	display: block;
+	max-width: 60%;
+	height: auto;
+}
