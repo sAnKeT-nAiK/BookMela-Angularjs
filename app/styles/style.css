@@ -1,3 +1,18 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*about cycle*/
+.section-padding{
+	padding:40px;
+}
+
+.about .bottom-right-separator{
+	bottom:-230px !important;
+
+}
 
 /*----------------------------------------*/
 
@@ -111,6 +126,7 @@
   text-decoration: underline;
   color: #00b597;
 }
+
 
 .copyright-text a {
   color: #444;
