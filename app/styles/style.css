@@ -181,7 +181,7 @@
 
 .footer-area {
   padding: 40px 0;
-  background: #f9f9f9;
+  background: #ECEFF1;
 }
 
 .footer-head p {
@@ -278,8 +278,8 @@
 }
 
 .footer-area-bottom {
-  background: #f1f1f1 none repeat scroll 0 0;
-  padding: 15px 0;
+  background: #CFD8DC none repeat scroll 0 0;
+  padding: 15px 0;B0BEC5
 }
 
 .copyright-text a:hover {
@@ -364,4 +364,15 @@ background-image: url(http://transparenttextures.com/patterns/always-grey.png);*
 	display: block;
 	max-width: 60%;
 	height: auto;
+}
+
+#jumbo{
+	padding-top:60px;
+	padding-bottom:60px
+}
+@media(max-width: 500px) {
+	#jumbo{
+	padding-top:20px;
+	padding-bottom:20px
+}
 }

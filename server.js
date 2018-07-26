@@ -22,6 +22,8 @@ var bodyParser=require('body-parser');
 // });
 // db.close();
 
+var port =process.env.PORT || 8080
+
 app.use(express.static(__dirname+"/app"));
 app.use(bodyParser.json());
 
@@ -41,5 +43,9 @@ app.get('/test',function(req,res){
 
 })
 
-app.listen(8080);
-console.log("running at 8080");
+// app.listen(8080);
+// console.log("running at 8080");
+
+app.listen(port, function(){
+	console.log("app running @ 8080")
+})
