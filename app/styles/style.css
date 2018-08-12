@@ -524,3 +524,10 @@ input[type=submit]:hover {
   margin-right:0px;
 }
 }
+
+/*end of ligin*/
+
+html, body {
+    /*max-width: 100%;*/
+    overflow-x: hidden;
+}
