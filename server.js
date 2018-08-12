@@ -4,7 +4,7 @@ var bodyParser=require('body-parser');
 
 // npm install https://github.com/mapbox/node-sqlite3/tarball/master sqlite3 for npm
 var sqlite3=require('sqlite3').verbose();
-var db=new sqlite3.Database('Database/bookmela.db');
+var db=new sqlite3.Database('app/database/bookmela.db');
 
 // db.serialize(function(){
 // 	db.run("CREATE TABLE user (id INT, dt TEXT)");
@@ -49,7 +49,6 @@ app.post('/signupdata',function(req,res){
 	
 
 	db.serialize(function(){
-	// db.run("CREATE TABLE signup (name TEXT(20), email TEXT(20), password TEXT(20))");
 	var stmt=db.prepare("INSERT INTO signup values(?,?,?)");
 	
 		var name=req.body.username;
@@ -60,11 +59,10 @@ app.post('/signupdata',function(req,res){
 
 	stmt.finalize();
 
-db.each("SELECT email from signup",function(err,row){
+db.each("SELECT email from signup where username='sunny'",function(err,row){
 	console.log("email:"+row.email);
-
-	res.send("recived from angular to node"+row.email);
 	console.log(req.body);
+
 });
 });
 db.close();
