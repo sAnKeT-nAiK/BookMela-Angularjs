@@ -7,3 +7,10 @@
     autoplayTimeout:1000,
     autoplayHoverPause:true
     })
+
+ 
+  $(document).click(function(e) {
+    if (!$(e.target).is('.panel-body')) {
+        $('.collapse').collapse('hide');        
+    }
+});
