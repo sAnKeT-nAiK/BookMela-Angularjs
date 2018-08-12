@@ -10,7 +10,7 @@
 
  
   $(document).click(function(e) {
-    if (!$(e.target).is('.panel-body')) {
+    if (!$(e.target).is('.navbar-admin')) {
         $('.collapse').collapse('hide');        
     }
 });

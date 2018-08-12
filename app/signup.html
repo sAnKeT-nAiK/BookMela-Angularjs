@@ -1,0 +1,44 @@
+
+<div class="row" ng-app="myapp" ng-controller="signup">
+<div class="container cont" id="a1" >
+  <form action="#">
+    <div class="row">
+      <div class="container cont hidden-xs">
+      <h2 style="text-align:center;" class="restext" >Signup with Social Media or Manually</h2>
+      </div>
+      <div class="vll">
+        <span class="vll-innertext">or</span>
+      </div>
+
+     
+
+      <div class="col">
+        
+
+        <input type="text" name="username" placeholder="Username" ng-model="signup.username" required>
+        <input type="text" name="email" placeholder="Email" ng-model="signup.email" required>
+        <input type="password" name="password" placeholder="Password" ng-model="signup.password" required>
+        <input type="password" name="passwordv" placeholder="Retype password" required>
+        <input type="submit" ng-click="send()" value="Signup">
+      </div>
+
+      <div class="hide-md-lg">
+          <p>Or sign up manually:</p>
+        </div>
+
+       <div class="col" style="padding-top: 40px">
+        <a href="#" class="fb btnlogin">
+          <i class="fa fa-facebook fa-fw"></i> Register with Facebook
+         </a>
+        <a href="#" class="twitter btnlogin">
+          <i class="fa fa-twitter fa-fw"></i> Register with Twitter
+        </a>
+        <a href="#" class="google btnlogin"><i class="fa fa-google fa-fw">
+          </i> Register with Google+
+        </a>
+      </div>
+      
+    </div>
+  </form>
+</div>
+</div>
