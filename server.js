@@ -1,26 +1,46 @@
 var express=require('express');
 var app=express();
 var bodyParser=require('body-parser');
-
+var multer=require('multer')
 // npm install https://github.com/mapbox/node-sqlite3/tarball/master sqlite3 for npm
 var sqlite3=require('sqlite3').verbose();
-var db=new sqlite3.Database('app/database/bookmela.db');
+var db=new sqlite3.Database('app/database/bookmela.db',(err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Connected to the SQlite database.');
+});
 
-// db.serialize(function(){
-// 	db.run("CREATE TABLE user (id INT, dt TEXT)");
-// 	var stmt=db.prepare("INSERT INTO user values(?,?)");
-// 	for(var i=0;i<3;i++){
-// 		var a="sanket";
-// 		var b="naik"
-// 		stmt.run(a,b);
-// 	}
+global.img_name="";
 
-// 	stmt.finalize();
-// db.each("SELECT id,dt from user",function(err,row){
-// 	console.log("User id:"+row.id,row.dt);
-// });
-// });
-// db.close();
+// file upload
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './app/media/uploads/book-images/')
+  },
+  filename: function (req, file, cb) {
+
+  	
+
+  	if(!file.originalname.match(/\.(jpeg|jpg|png)$/)){
+  		var err=new Error();
+  		err.code='filetype';
+  		return cb(err);
+  	}else{
+  		img_name=Date.now()+'_'+file.originalname;
+  		cb(null,img_name);
+  	}
+  }
+});
+
+
+var upload = multer({ 
+	storage: storage,
+	limits:{ fileSize: 50000000}
+	 }).single('myfile');
+	
+
+// file upload end
 
 var port =process.env.PORT || 8080
 
@@ -42,6 +62,36 @@ app.use(bodyParser.json());
 // 	console.log('get reqst sent to aj');
 
 // });
+
+
+// file upload
+app.post('/upload', function (req, res) {
+  upload(req, res, function (err) {
+    if (err) {
+      if(err.code==='LIMIT_FILE_SIZE'){
+      	res.json({success:false, message:'File size is too large. Limit is 5mb'});
+      }else if (err.code==='filetype'){
+      		res.json({success:false, message:'File type is invalid. Must be png, jpeg, jpg'});
+      }else{
+      		console.log(err);
+      		res.json({success:false, message:'File cannot be uploaded'});
+      }
+    }else{
+    	if(!req.file){
+    			res.json({success:false, message:'No file was selected'});
+    	}else{
+    			res.json({success:true, message:'File was uploded'});
+    	}
+    }
+
+    // Everything went fine
+  })
+
+  console.log(img_name);
+
+})
+// file ul end
+
 
 // signup
 
@@ -65,12 +115,16 @@ db.each("SELECT email from signup where username='sunny'",function(err,row){
 
 });
 });
-db.close();
+db.close((err) => { 
+  		if (err) {
+    	return console.error(err.message);
+  	}
+  	console.log('Succesfully closed database connection.');
+	});
+
+
 
 });
-
-// app.listen(8080);
-// console.log("running at 8080");
 
 app.listen(port, function(){
 	console.log("app running @ 8080")

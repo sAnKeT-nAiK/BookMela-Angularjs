@@ -4,13 +4,13 @@
     autoWidth:true,
     items:4,
     autoplay:true,
-    autoplayTimeout:1000,
+    autoplayTimeout:1000, 
     autoplayHoverPause:true
     })
 
  
-  $(document).click(function(e) {
-    if (!$(e.target).is('.navbar-admin')) {
-        $('.collapse').collapse('hide');        
-    }
-});
+//   $(document).click(function(e) {
+//     if (!$(e.target).is('')) {
+//         $('.collapse').collapse('hide');        
+//     }
+// });

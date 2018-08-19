@@ -1,8 +1,31 @@
 
-var app=angular.module("myapp",['ui.bootstrap','ngRoute']);
+var app=angular.module("myapp",['ui.bootstrap','ngRoute','fileModelDirective','uploadFileService']);
 
 
-app.controller('myctrl',function($scope,$http){
+app.controller('myctrl',function($scope,$http,uploadFile){
+
+
+$scope.file={};
+
+$scope.submit=function(){
+    $scope.uploading=true;
+    uploadFile.upload($scope.file).then(function(data){
+        if(data.data.success){
+            $scope.uploading=false;
+            $scope.alert="alert alert-success";
+            $scope.message=data.data.message;
+            $scope.file={};
+        }else{
+
+            $scope.uploading=false;
+            $scope.alert="alert alert-danger";
+            $scope.message=data.data.message;
+            $scope.file={};
+
+        }
+        });
+    }
+
 
 
 $scope.books=['Java','C','C++','Python','Django','noSql','Nodejs','Angularjs'];	
@@ -55,10 +78,14 @@ app.config(function($routeProvider) {
         templateUrl : "signup.html",
         controller : ""
     })
+     .when("/admin", {
+        templateUrl : "admin.html",
+        controller : ""
+    })
      .otherwise({redirectTo:"/"})
       
 
-
+     
 
    
 });
